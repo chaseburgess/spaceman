@@ -1,27 +1,38 @@
-	/*----- constants -----*/
-const letters = 
+/*----- constants -----*/
+const WORDS = ['GALAXY' , 'NEBULA' , 'COSMOS', 'MOON' ,];
+const NUM_LOST = 6;
 
-	/*----- state variables -----*/
+/*----- state variables -----*/
+let secretWord; 
+let wrongLetters;
+let guess;
+let winner; //null === game in play, 'W' === won, 'L' === lost,
 
-
-	/*----- cached elements  -----*/
+/*----- cached elements  -----*/
+const guessEl = document.getElementById('guess');
+const remaingingEl = document.getElementById('num-remaining');
 const imgEl = document.querySelector('img');
 
-	/*----- event listeners -----*/
+/*----- event listeners -----*/
 
 
-	/*----- functions -----*/
+/*----- functions -----*/
 init();
 
 function init() {
-
+    secretWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+    wrongLetters = [];
+    guess = '_'.repeat(secretWord.length);
+    winner = null;
     render();
-    renderControls();
-    renderButtons();
-    const imgPath = 'imgs/spaceman-$(wrongGuessed.length).jpeg';
-    imgEl.src = imgPath;
-    wordDisplay.innerHTML = guess;
 }
+
+function render() {
+    guessEl.innerHTML = guess;
+    remaingingEl.innerHTML = `${NUM_LOST - wrongLetters.length} Guesses Remaining`;
+    
+
+};
 
 function handleBtnClikc(evt) {
     const letter = evt.target.innerText;
@@ -44,5 +55,5 @@ winner = getWinner();
 render();
 }
 function getWinner() {
-    
+
 }
