@@ -13,6 +13,7 @@ const guessEl = document.getElementById('guess');
 const messageEl = document.getElementById('message');
 const imgEl = document.querySelector('img');
 const playAgainBtn = document.getElementById('Play-Again');
+const letterBtns = document.querySelectorAll('#letters > button');
 
 /*----- event listeners -----*/
 document.getElementById('letters').addEventListener('click', handleLetterClick);
@@ -30,7 +31,7 @@ function init() {
 }
 
 function render() {
-    renderControls();
+    renderButtons();
     guessEl.innerHTML = guess;
     imgEl.src = `imgs/spaceman-${wrongLetters.length}.jpg`;
     if (winner === 'W') {
@@ -42,8 +43,13 @@ function render() {
     }
 };
 
-function renderControls() {
+function renderButtons() {
     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+    letterBtns.forEach(function(btn) {
+        const letter = btn.innerHTML;
+        const hideBtn = wrongLetters.includes(letter) || guess.includes(letter);
+        btn.style.visibility = hideBtn ? 'hidden' : 'visible'; 
+    });
 }
 
 function handleLetterClick(evt) {

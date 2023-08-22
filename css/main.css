@@ -2,9 +2,6 @@
     box-sizing: border-box;
 }
 
-title {
-    
-}
 
 body {
     height: 100vh;
@@ -47,13 +44,14 @@ img {
     display: flex;
     flex-direction: column;
     justify-self: center;
-    margin: 3vmin;
+    /* margin: 3vmin; */
     font-size: 3vmin;
     color: darkgray;
 }
 
 #guess {
-    font-size: 9vmin;
+    font-size: 10vmin;
+    font-weight: 900;
     letter-spacing: 1.8vmin;
     color: greenyellow;
 }
