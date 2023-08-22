@@ -3,47 +3,102 @@
 }
 
 title {
+    
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
 
 }
 
 header {
-
+    font-size: 9vmin;
+    color: darkgrey;
+    letter-spacing: 1vmin;
+    font-weight: ;
+    display: flex;
+    justify-content: end;
 }
 
-body {
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #subhead {
-
-}
-
-#btns-container {
-
-}
-
-img {
-
-}
-#message {
     
 }
 
+img {
+    height: 50vmin;
+    display: 
+
+}
+#message {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin: 3vmin;
+    font-size: 3vmin;
+    color: darkgray;
+}
+
 #guess {
-    font-size: 10vmin;
+    font-size: 9vmin;
     letter-spacing: 1.8vmin;
+    color: greenyellow;
 }
 
 #letters {
-    margin-top: 5vmin;
+    color: darkgrey;
+}
+
+#letters:hover {
 
 }
 
 .alpha {
+    justify-self: center;
+    height: 4vmin;
+    width: 13vmin;
+    margin: 1vmin;
+    background-color: black;
+    color: darkgrey;
+    border: .3vmin solid greenyellow;
+    border-radius: 3vmin;
+    font-size: 3vmin;
+    outline: none;
+}
 
+.alpha:hover {
+    background-color: darkgrey;
+    color: black;
 }
 
 #Play-Again {
-
+    justify-self: center;
+    height: 4vmin;
+    width: 17vmin;
+    margin: .5vmin;
+    background-color: darkgrey;
+    color: black;
+    border: .3vmin solid greenyellow;
+    border-radius: 3vmin;
+    font-size: 2vmin;
+    outline: none;
 }
+
+#Play-Again:hover {
+    background-color: black;
+    color: darkgrey;
+  }
   
