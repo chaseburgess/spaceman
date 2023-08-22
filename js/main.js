@@ -41,6 +41,7 @@ function render() {
         messageEl.innerHTML = `${NUM_LOST - wrongLetters.length} Guesses Remaining`;
     }
 };
+
 function renderControls() {
     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
 }

@@ -1,6 +1,37 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+}
+
+title {
+
+}
+
+header {
+
+}
+
+body {
+
+}
+
+#subhead {
+
+}
+
+#btns-container {
+
+}
+
+img {
+
+}
+#message {
+    
+}
+
+#guess {
+    font-size: 10vmin;
+    letter-spacing: 1.8vmin;
 }
 
 #letters {
@@ -8,8 +39,11 @@
 
 }
 
-#guess {
-    font-size: 10vmin;
-    letter-spacing: 1.8vmin;
+.alpha {
+
+}
+
+#Play-Again {
+
 }
   
