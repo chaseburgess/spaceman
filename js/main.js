@@ -12,9 +12,11 @@ let winner; //null === game in play, 'W' === won, 'L' === lost,
 const guessEl = document.getElementById('guess');
 const messageEl = document.getElementById('message');
 const imgEl = document.querySelector('img');
+const playAgainBtn = document.getElementById('Play-Again');
 
 /*----- event listeners -----*/
 document.getElementById('letters').addEventListener('click', handleLetterClick);
+playAgainBtn.addEventListener('click', init);
 
 /*----- functions -----*/
 init();
@@ -28,6 +30,7 @@ function init() {
 }
 
 function render() {
+    renderControls();
     guessEl.innerHTML = guess;
     imgEl.src = `imgs/spaceman-${wrongLetters.length}.jpg`;
     if (winner === 'W') {
@@ -38,6 +41,9 @@ function render() {
         messageEl.innerHTML = `${NUM_LOST - wrongLetters.length} Guesses Remaining`;
     }
 };
+function renderControls() {
+    playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+}
 
 function handleLetterClick(evt) {
     const letter = evt.target.innerText;
