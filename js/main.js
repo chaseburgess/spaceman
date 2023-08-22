@@ -1,5 +1,5 @@
 /*----- constants -----*/
-const WORDS = ['GALAXY' , 'NEBULA' , 'COSMOS', 'MOON' ,];
+const WORDS = ['GALAXY' , 'NEBULA' , 'COSMOS', 'MOON'];
 const NUM_LOST = 6;
 
 /*----- state variables -----*/
@@ -10,11 +10,11 @@ let winner; //null === game in play, 'W' === won, 'L' === lost,
 
 /*----- cached elements  -----*/
 const guessEl = document.getElementById('guess');
-const remaingingEl = document.getElementById('num-remaining');
+const messageEl = document.getElementById('message');
 const imgEl = document.querySelector('img');
 
 /*----- event listeners -----*/
-
+document.getElementById('letters').addEventListener('click', handleLetterClick);
 
 /*----- functions -----*/
 init();
@@ -29,31 +29,35 @@ function init() {
 
 function render() {
     guessEl.innerHTML = guess;
-    remaingingEl.innerHTML = `${NUM_LOST - wrongLetters.length} Guesses Remaining`;
-    
-
+    imgEl.src = `imgs/spaceman-${wrongLetters.length}.jpg`;
+    if (winner === 'W') {
+        messageEl.innerHTML = 'Congrats! The Force was with you!';
+    } else if (winner === 'L') {
+        messageEl.innerHTML = 'Welcome to the Dark Side!';
+    } else {
+        messageEl.innerHTML = `${NUM_LOST - wrongLetters.length} Guesses Remaining`;
+    }
 };
 
-function handleBtnClikc(evt) {
+function handleLetterClick(evt) {
     const letter = evt.target.innerText;
-    if (evt.target.tagName !== 'BUTTON' || guess.includes(letter) || wongGuesses.includes(letter) || winner) return;
-    if (wordSelected.includes(letter)){
-//correct guess
-let newGuess = '';
-const wordArr = [...wordSelected];
-wordArr.forEach(function(char, charIdk) {
-    if (char === letter) {
-        newGuess += guess.charAt(charIdx);
+    if (evt.target.tagName !== 'BUTTON' || guess.includes(letter) || wrongLetters.includes(letter) || winner) return;
+    if (secretWord.includes(letter)) {
+        let newGuess = '';
+        [...secretWord].forEach(function(char, charIdx) {
+            newGuess += char === letter ? letter : guess.charAt(charIdx);
+        });
+        guess = newGuess;    
+    } else {
+        //wrong guess
+        wrongLetters.push(letter);
     }
-});
-    guess = newGuess;    
-} else {
-    //wronf guess
-    wrongGuesses.push(letter);
+    winner = getWinner();
+    render();
 }
-winner = getWinner();
-render();
-}
-function getWinner() {
 
+function getWinner() {
+    if (guess === secretWord) return 'W';
+    if (wrongLetters.length === NUM_LOST) return 'L';
+    return null;
 }
