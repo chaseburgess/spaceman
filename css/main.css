@@ -11,8 +11,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
-
+    /* background-color: white; */
+    background-image: url(https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2018_01/2280531/180103-ufo-illustration-mn-1015.jpg);
+     background-size: 100vh; 
+     background-repeat: no-repeat;
 }
 
 header {
@@ -22,6 +24,7 @@ header {
     font-weight: ;
     display: flex;
     justify-content: end;
+    
 }
 
 
