@@ -1,5 +1,5 @@
 /*----- constants -----*/
-const WORDS = ['GALAXY' , 'NEBULA' , 'COSMOS', 'MOON', 'SPACESHIP', ];
+const WORDS = ['GALAXY' , 'NEBULA' , 'COSMOS', 'MOON', 'SPACESHIP', 'ALIENS', 'PLANET', 'ORBITS', 'STAR', 'METEOR', 'SATURN', 'URANUS', 'STARRY'];
 const NUM_LOST = 6;
 
 /*----- state variables -----*/
@@ -34,6 +34,7 @@ function render() {
     renderButtons();
     guessEl.innerHTML = guess;
     imgEl.src = `imgs/spaceman-${wrongLetters.length}.png`;
+
     if (winner === 'W') {
         messageEl.innerHTML = 'Congrats! The Force was with you!';
     } else if (winner === 'L') {
