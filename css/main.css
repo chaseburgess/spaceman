@@ -9,6 +9,7 @@ body {
     margin: 0;
     background: black;
     flex-direction: column;
+    font-family: 'Roboto Mono', monospace;
     justify-content: center;
     align-items: center;
     transition-property: transform;
@@ -16,7 +17,7 @@ body {
 }
 
 header {
-    font-size: 9vmin;
+    font-size: 7vmin;
     color: darkgrey;
     letter-spacing: 1vmin;
     display: flex;
@@ -24,7 +25,7 @@ header {
 }
 
 #word {
-    font-size: 4vmin;
+    font-size: 2vmin;
     color: darkgrey;
 }
 
@@ -39,7 +40,7 @@ main {
 }
 
 img {
-    height: 50vh;
+    height: 36vmin;
     animation: shake 2.5s;
     animation-iteration-count: infinite;
 
@@ -64,8 +65,9 @@ img {
     flex-direction: column;
     justify-self: center;
     margin: 3vmin;
-    font-size: 3vmin;
-    color: darkgray;
+    font-size: 2.6vmin;
+    color: greenyellow;
+    text-align: center;
 }
 
 #guess {
@@ -77,7 +79,11 @@ img {
 }
 
 #letters {
-    color: darkgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 22vmin;
 }
 
 #letters:hover {
@@ -85,16 +91,19 @@ img {
 }
 
 .alpha {
-    justify-self: center;
+    font-family: 'Roboto Mono', monospace;
     height: 4vmin;
-    /* width: 13vmin; */
-    /* margin: 1vmin; */
+    width: 4vmin;
     background-color: black;
-    color: darkgrey;
+    color: white;
     border: .3vmin solid greenyellow;
-    border-radius: 3vmin;
-    font-size: 3vmin;
+    border-radius: 50%;
+    font-size: 2.5vmin;
     outline: none;
+    /* padding: 0.3vmin; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .alpha:hover {
@@ -106,7 +115,7 @@ img {
     justify-self: center;
     height: 4vmin;
     width: 17vmin;
-    margin: .5vmin;
+    margin-top: -5vmin;
     background-color: darkgrey;
     color: black;
     border: .3vmin solid greenyellow;

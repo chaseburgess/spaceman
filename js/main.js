@@ -33,30 +33,21 @@ function init() {
 
 function render() {
     renderButtons();
-    renderLostWord();
+    renderMessage();
     guessEl.innerHTML = guess;
     imgEl.src = `imgs/spaceman-${wrongLetters.length}.png`;
-
-    // if (winner === 'W') {
-    //     messageEl.innerHTML = 'Congrats, YOU WON! The Force is strong with this one!';
-    // } else if (winner === 'L') {
-    //     messageEl.innerHTML = 'YOU LOST! Welcome to the Dark Side!';
-    //     lostWord.innerHTML = `The answer was ${secretWord}!`;
-    // } else {
-    //     messageEl.innerHTML = `${NUM_LOST - wrongLetters.length} Guesses Remaining`;
-    // }
 };
 
 function renderButtons() {
     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
     letterBtns.forEach(function(btn) {
         const letter = btn.innerHTML;
-        const hideBtn = wrongLetters.includes(letter) || guess.includes(letter);
+        const hideBtn = wrongLetters.includes(letter) || guess.includes(letter) || winner;
         btn.style.visibility = hideBtn ? 'hidden' : 'visible'; 
     });
 }
 
-function renderLostWord() {
+function renderMessage() {
     if (winner === 'W') {
         messageEl.innerHTML = 'Congrats, YOU WON! The Force is strong with this one!';
     } else if (winner === 'L') {
