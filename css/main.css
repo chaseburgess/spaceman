@@ -23,6 +23,11 @@ header {
     justify-content: end;
 }
 
+#word {
+    font-size: 4vmin;
+    color: darkgrey;
+}
+
 main {
     display: flex;
     flex-direction: column;

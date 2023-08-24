@@ -14,6 +14,7 @@ const messageEl = document.getElementById('message');
 const imgEl = document.querySelector('img');
 const playAgainBtn = document.getElementById('Play-Again');
 const letterBtns = document.querySelectorAll('#letters > button');
+const lostWord = document.getElementById('word');
 
 /*----- event listeners -----*/
 document.getElementById('letters').addEventListener('click', handleLetterClick);
@@ -32,16 +33,18 @@ function init() {
 
 function render() {
     renderButtons();
+    renderLostWord();
     guessEl.innerHTML = guess;
     imgEl.src = `imgs/spaceman-${wrongLetters.length}.png`;
 
-    if (winner === 'W') {
-        messageEl.innerHTML = 'Congrats! The Force was with you!';
-    } else if (winner === 'L') {
-        messageEl.innerHTML = 'Welcome to the Dark Side!';
-    } else {
-        messageEl.innerHTML = `${NUM_LOST - wrongLetters.length} Guesses Remaining`;
-    }
+    // if (winner === 'W') {
+    //     messageEl.innerHTML = 'Congrats, YOU WON! The Force is strong with this one!';
+    // } else if (winner === 'L') {
+    //     messageEl.innerHTML = 'YOU LOST! Welcome to the Dark Side!';
+    //     lostWord.innerHTML = `The answer was ${secretWord}!`;
+    // } else {
+    //     messageEl.innerHTML = `${NUM_LOST - wrongLetters.length} Guesses Remaining`;
+    // }
 };
 
 function renderButtons() {
@@ -51,6 +54,18 @@ function renderButtons() {
         const hideBtn = wrongLetters.includes(letter) || guess.includes(letter);
         btn.style.visibility = hideBtn ? 'hidden' : 'visible'; 
     });
+}
+
+function renderLostWord() {
+    if (winner === 'W') {
+        messageEl.innerHTML = 'Congrats, YOU WON! The Force is strong with this one!';
+    } else if (winner === 'L') {
+        messageEl.innerHTML = 'YOU LOST! Welcome to the Dark Side!';
+        lostWord.innerHTML = `The answer was ${secretWord}!`;
+    } else {
+        messageEl.innerHTML = `${NUM_LOST - wrongLetters.length} Guesses Remaining`;
+        lostWord.innerHTML = '';
+    }
 }
 
 function handleLetterClick(evt) {
